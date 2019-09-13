@@ -23,11 +23,6 @@ else:
 
 lp.ButtonFlush()
 lp.Reset()
-# while 1:
-#     lp.LedCtrlString("NUTRONs ", 3, 0, direction=lp.SCROLL_LEFT, waitms=1)
-#     from time import sleep
-#     sleep(1)
-logging.basicConfig(level=logging.DEBUG)
 NetworkTables.initialize("10.1.25.2")
 table = NetworkTables.getTable("Launchpad")
 started = True
