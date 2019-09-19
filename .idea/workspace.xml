@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/launchpad_mini.py" beforeDir="false" afterPath="$PROJECT_DIR$/launchpad_mini.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/launchpad_mk2.py" beforeDir="false" afterPath="$PROJECT_DIR$/launchpad_mk2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/launchpad_py/launchpad.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/launchpad_py/launchpad.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,11 +27,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/launchpad_mk2.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectId" id="1QhIF3yIuWgIJyApoh9D7si2hj6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../LPHK" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -161,7 +165,7 @@
     </recent_temporary>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\chris\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

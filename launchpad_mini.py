@@ -91,7 +91,7 @@ leftline = [Button(8, 2, 3, 3), Button(9, 2, 3, 3)]
 
 def start(lp):
     stopthreads = False
-    from button import Button
+
     def fratarget():
         interval = 0
         for i in range(15):
@@ -332,20 +332,21 @@ def start(lp):
 
     lp.Reset()
     logging.basicConfig(level=logging.INFO)
-    displayconnecting()
-    # NetworkTables.initialize("10.1.25.2")
-    # print("Connecting...")
-    # while not NetworkTables.isConnected():
-    #     NetworkTables.initialize("10.1.25.2")
-    #     sleep(1)
-    # table = NetworkTables.getTable("Launchpad")
-    # print("CONNECTED")
-    stopthreads = True
+    # displayconnecting()
+    NetworkTables.initialize("10.1.25.2")
+    print("Connecting...")
+    while not NetworkTables.isConnected():
+        NetworkTables.initialize("10.1.25.2")
+        sleep(1)
+    table = NetworkTables.getTable("Launchpad")
+    # sleep(5)
+    print("CONNECTED")
+    # stopthreads = True
 
-    lp.LedCtrlString("Rob195 ", 0, 3, direction=lp.SCROLL_LEFT, waitms=0)
+    # lp.LedCtrlString("Rob195 ", 0, 3, direction=lp.SCROLL_LEFT, waitms=0)
     lp.ButtonFlush()
+
     try:
-        print("READY TO CONTROL")
         # Make base
         lp.LedCtrlXY(2, 8, 3, 0)  # Force back
         lp.LedCtrlXY(3, 8, 3, 0)
@@ -370,25 +371,25 @@ def start(lp):
         lp.LedCtrlXY(6, 1, 0, 3)  # Front player station cargo intake
 
         lp.ButtonFlush()
-        # Have methods spiral on and sprial off
-        # Start another thread to keep the button spiral on until it sees that button spiral was turned off
+        print("READY TO CONTROL")
         while 1:
             button = lp.ButtonStateXY()
             if button:
-                # print("Pressed button: {}:{}:{}".format(button[0], button[1], bool(button[2])))
+                print("Pressed button: {}:{}:{}".format(button[0], button[1], bool(button[2])))
                 butcoords = str(button[0]) + "," + str(button[1])
 
                 if bool(button[2]):
                     spiralaroundbutton(button[0], button[1])
-
                 if button[0] == 4 and button[1] == 8 and bool(button[2]):
                     flyingrightarrow()
                 if button[0] == 2 and button[1] == 8 and bool(button[2]):
                     flyingleftarrow()
+
                 if butcoords in buttondict:
                     print("Key: ", buttondict[butcoords])
                     print("Value: ", butcoords)
-                    # table.putBoolean(buttondict[butcoords], butcoords)
+
+                    table.putBoolean(buttondict[butcoords], bool(button[2]))
 
     except Exception as e:
         print(e.strerror)
