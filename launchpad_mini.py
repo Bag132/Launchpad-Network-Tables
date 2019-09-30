@@ -1,7 +1,7 @@
 import sys
 import threading
-import logging
-from concurrent.futures.thread import ThreadPoolExecutor
+# import logging
+# from concurrent.futures.thread import ThreadPoolExecutor
 
 from button import Button
 from time import sleep
@@ -17,6 +17,7 @@ except ImportError:
         sys.exit(-42)
 
 ip = "10.1.25.2"
+
 columnsused = -1
 
 forceback = Button(2, 8, 3, 0, name="Force Back")
@@ -28,7 +29,7 @@ csfront = Button(7, 5, 0, 3, name="Cargo Ship Front")
 csback = Button(0, 5, 0, 3, name="Cargo Ship Back")
 highrocket = Button(5, 3, 0, 3, name="High Rocket")
 dunk = Button(6, 3, 0, 3, name="Dunk")
-groundintake = Button(1, 8, 0, 3, name="Ground Intake")
+groundintake = Button(0, 8, 0, 3, name="Ground Intake")
 backpscargointake = Button(0, 1, 0, 3, name="Back PS Cargo Intake")
 backpshatchintake = Button(1, 1, 0, 3, name="Back PS Hatch Intake")
 frontpshatchintake = Button(7, 1, 0, 3, name="Front PS Hatch Intake")
@@ -331,8 +332,8 @@ def start(lp):
         print("Launchpad may not be plugged in")
 
     lp.Reset()
-    logging.basicConfig(level=logging.INFO)
-    # displayconnecting()
+    # logging.basicConfig(level=logging.INFO)
+    displayconnecting()
     NetworkTables.initialize("10.1.25.2")
     print("Connecting...")
     while not NetworkTables.isConnected():
@@ -341,8 +342,8 @@ def start(lp):
     table = NetworkTables.getTable("Launchpad")
     # sleep(5)
     print("CONNECTED")
-    # stopthreads = True
-
+    stopthreads = True
+    sleep(0.5)
     # lp.LedCtrlString("Rob195 ", 0, 3, direction=lp.SCROLL_LEFT, waitms=0)
     lp.ButtonFlush()
 
@@ -364,15 +365,16 @@ def start(lp):
         lp.LedCtrlXY(5, 3, 0, 3)  # High rocket
         lp.LedCtrlXY(6, 3, 0, 3)  # Dunk
         # Make intake points
-        lp.LedCtrlXY(1, 8, 0, 3)  # Ground intake
+        lp.LedCtrlXY(0, 8, 0, 3)  # Ground intake
         lp.LedCtrlXY(0, 1, 0, 3)  # Back Player station cargo intake
         lp.LedCtrlXY(1, 1, 0, 3)  # Back Player station hatch intake
         lp.LedCtrlXY(7, 1, 0, 3)  # Front player station hatch intake
         lp.LedCtrlXY(6, 1, 0, 3)  # Front player station cargo intake
 
         lp.ButtonFlush()
+        patricklomba = True
         print("READY TO CONTROL")
-        while 1:
+        while patricklomba:
             button = lp.ButtonStateXY()
             if button:
                 print("Pressed button: {}:{}:{}".format(button[0], button[1], bool(button[2])))
@@ -392,7 +394,7 @@ def start(lp):
                     table.putBoolean(buttondict[butcoords], bool(button[2]))
 
     except Exception as e:
-        print(e.strerror)
+        print(e)
     finally:
         try:
             lp.Reset()
