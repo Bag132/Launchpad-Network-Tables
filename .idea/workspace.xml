@@ -4,7 +4,6 @@
     <list default="true" id="0024b4d6-4c0a-46cc-83b1-18cfeab784f2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/launchpad_mini.py" beforeDir="false" afterPath="$PROJECT_DIR$/launchpad_mini.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +30,7 @@
   <component name="ProjectId" id="1QhIF3yIuWgIJyApoh9D7si2hj6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../LPHK" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../python-multiCameraServer" />
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RunDashboard">

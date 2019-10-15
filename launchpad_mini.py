@@ -28,12 +28,14 @@ midrocket = Button(5, 5, 0, 3, name="Mid Rocket")
 csfront = Button(7, 5, 0, 3, name="Cargo Ship Front")
 csback = Button(0, 5, 0, 3, name="Cargo Ship Back")
 highrocket = Button(5, 3, 0, 3, name="High Rocket")
+
 dunk = Button(6, 3, 0, 3, name="Dunk")
 groundintake = Button(0, 8, 0, 3, name="Ground Intake")
 backpscargointake = Button(0, 1, 0, 3, name="Back PS Cargo Intake")
 backpshatchintake = Button(1, 1, 0, 3, name="Back PS Hatch Intake")
 frontpshatchintake = Button(7, 1, 0, 3, name="Front PS Hatch Intake")
 frontpscargointake = Button(6, 1, 0, 3, name="Front PS Cargo Intake")
+superhatchintake = Button(8, 8, 0, 3, name="Super Hatch Intake")
 
 buttondict = {
     str(forceback.getx()) + "," + str(forceback.gety()): forceback.getname(),
@@ -49,7 +51,8 @@ buttondict = {
     str(backpscargointake.getx()) + "," + str(backpscargointake.gety()): backpscargointake.getname(),
     str(backpshatchintake.getx()) + "," + str(backpshatchintake.gety()): backpshatchintake.getname(),
     str(frontpshatchintake.getx()) + "," + str(frontpshatchintake.gety()): frontpshatchintake.getname(),
-    str(frontpscargointake.getx()) + "," + str(frontpscargointake.gety()): frontpscargointake.getname()
+    str(frontpscargointake.getx()) + "," + str(frontpscargointake.gety()): frontpscargointake.getname(),
+    str(superhatchintake.gety()) + "," + str(superhatchintake.gety()):superhatchintake.getname()
 }
 
 rbaseleft = Button(2, 8, 3, 0)
@@ -368,6 +371,7 @@ def start(lp):
         lp.LedCtrlXY(0, 8, 0, 3)  # Ground intake
         lp.LedCtrlXY(0, 1, 0, 3)  # Back Player station cargo intake
         lp.LedCtrlXY(1, 1, 0, 3)  # Back Player station hatch intake
+        lp.LedCtrlXY(8, 8, 0, 3)  # Super hatch intake
         lp.LedCtrlXY(7, 1, 0, 3)  # Front player station hatch intake
         lp.LedCtrlXY(6, 1, 0, 3)  # Front player station cargo intake
 
